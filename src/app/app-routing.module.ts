@@ -8,8 +8,20 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'tabulardata',
     pathMatch: 'full'
+  },
+  {
+    path: 'location-finder',
+    loadChildren: () => import('./location-finder/location-finder.module').then( m => m.LocationFinderPageModule)
+  },
+  {
+    path: 'child',
+    loadChildren: () => import('./child/child.module').then( m => m.ChildPageModule)
+  },
+  {
+    path: 'tabulardata',
+    loadChildren: () => import('./tabulardata/tabulardata.module').then( m => m.TabulardataPageModule)
   },
 ];
 

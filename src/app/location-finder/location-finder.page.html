@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>locationFinder</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label>latitude</ion-label>
+    <ion-input placeholder="latitude" [(ngModel)]="latitude"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>longitude</ion-label>
+    <ion-input placeholder="latitude" [(ngModel)]="longitude"></ion-input>
+  </ion-item>
+  <ion-button class="ion-padding" (click)="reverseGeocode(latitude,longitude)">Set Manually</ion-button>
+
+  <ion-item class="displayitmsec">
+    <ion-label position="floating">Country Code</ion-label>
+    <ionic-selectable [hasVirtualScroll]="true" [(ngModel)]="countryArr"
+      [items]="countriesArray" itemValueField="name" itemTextField="name" [canSearch]="true"
+      (onChange)="countryChange($event)">
+      <ng-template ionicSelectableItemTemplate let-user="item">
+        {{user.name}}  &nbsp;&nbsp; {{user.countryCallingCodes[0]}}
+      </ng-template>
+    </ionic-selectable>
+  </ion-item>
+
+
+
+  <ion-item class="ion-padding">
+    <ion-label style="text-align: center;">{{countryCode}}</ion-label>
+  </ion-item>
+  <!-- <ion-item class="forminputphone">
+    <ion-label position="floating">Phone Number</ion-label>
+    <ion-intl-tel-input inputPlaceholder="Your phone number"  
+    [(ngModel)]="phoneNumber"
+    [preferredCountries]="preferredCountries">
+    </ion-intl-tel-input>
+  </ion-item> -->
+
+</ion-content>
